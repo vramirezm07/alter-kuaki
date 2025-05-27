@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import './src/styles/global.css' 
+---
+
+<Layout title="Ilustraciones">
+  <h1>Mis Ilustraciones</h1>
+  <div class="illustrations-grid">
+    <!-- Aquí puedes agregar tus ilustraciones -->
+    <div class="illustration-card">
+      <h2>Ilustración 1</h2>
+      <p>Descripción de la ilustración 1</p>
+    </div>
+    <div class="illustration-card">
+      <h2>Ilustración 2</h2>
+      <p>Descripción de la ilustración 2</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .illustrations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .illustration-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .illustration-card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+</style> 

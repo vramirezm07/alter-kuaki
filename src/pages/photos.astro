@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import './src/styles/global.css' 
+---
+
+<Layout title="Fotografía">
+  <h1>Mi Fotografía</h1>
+  <div class="photos-grid">
+    <!-- Aquí puedes agregar tus fotografías -->
+    <div class="photo-card">
+      <h2>Fotografía 1</h2>
+      <p>Descripción de la fotografía 1</p>
+    </div>
+    <div class="photo-card">
+      <h2>Fotografía 2</h2>
+      <p>Descripción de la fotografía 2</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .photo-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .photo-card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+</style> 

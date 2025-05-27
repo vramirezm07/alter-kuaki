@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Inicio">
+  <div class="hero">
+    <h1>Bienvenido a mi Portfolio</h1>
+    <p>Explora mis proyectos e ilustraciones.</p>
+  </div>
+
+  <div class="featured-sections">
+    <div class="section-card">
+      <h2>Proyectos</h2>
+      <p>Descubre mis trabajos universitarios y personales.</p>
+      <a href="/work" class="cta-button">Ver proyectos</a>
+    </div>
+
+    <div class="section-card">
+      <h2>Ilustraciones</h2>
+      <p>Explora mi galería de ilustraciones personales.</p>
+      <a href="/illustrations" class="cta-button">Ver ilustraciones</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+
+  .featured-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .section-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .section-card h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .section-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .featured-sections {
+      padding: 0 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import './src/styles/global.css' 
+---
+
+<Layout title="Proyectos">
+  <h1>Mis Proyectos</h1>
+  <div class="projects-grid">
+    <!-- Aquí puedes agregar tus proyectos -->
+    <div class="project-card">
+      <h2>Proyecto 1</h2>
+      <p>Descripción del proyecto 1</p>
+    </div>
+    <div class="project-card">
+      <h2>Proyecto 2</h2>
+      <p>Descripción del proyecto 2</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .project-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .project-card h2 {
+    margin-top: 0;
+    color: #333;
+  }
+</style> 
