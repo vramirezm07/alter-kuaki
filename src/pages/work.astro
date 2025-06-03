@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeaderAlt from '../components/HeaderAlt.astro';
-import './src/css/global.css' 
+import './src/styles/global.css' 
 ---
 
 <Layout title="Proyectos">
+
   <HeaderAlt />
   <nav class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 backdrop-blur-sm rounded-full shadow-lg px-4 py-2">
     <div class="flex gap-4">
@@ -39,13 +40,13 @@ import './src/css/global.css'
         <!-- Ilustración 2 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
           <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/trabajos/illustrator2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/trabajos/illustrator2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/trabajos/illustrator2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/trabajos/illustrator2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/trabajos/illustrator2_grande.jpg" type="image/jpeg">
-            <source srcset="/img/trabajos/illustrator2_grande.jpg" type="image/jpeg">
-            <img src="/img/trabajos/illustrator2_grande.jpg" alt="Illustrator 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+            <source srcset="/public/portadas/autoretrato_animacion_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/public/portadas/autoretrato_animacion_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/public/portadas/autoretrato_animacion__.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/public/portadas/autoretrato_animacion__.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/public/portadas/autoretrato_animacion__grande.jpg" type="image/jpeg">
+            <source srcset="/public/portadas/autoretrato_animacion__grande.jpg" type="image/jpeg">
+            <img src="/public/portadas/autoretrato_animacion__grande.jpg" alt="Illustrator 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
           </picture>
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Illustrator 2</h3>

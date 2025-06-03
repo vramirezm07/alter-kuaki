@@ -4,18 +4,15 @@
     <button class="menu-toggle" aria-label="Abrir menú">
       <i class="fas fa-bars"></i>
     </button>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/work">Proyectos</a></li>
-        <li><a href="/illustrations">Ilustraciones</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Uncial+Antiqua&display=swap');
+
+  header {
+    background-color: #092017;
+  }
 
   .header-container {
     max-width: 1200px;
@@ -30,7 +27,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: white;
   }
 
   .menu-toggle {
@@ -38,7 +35,7 @@
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #333;
+    color: white;
     cursor: pointer;
     padding: 0.5rem;
   }
@@ -53,7 +50,7 @@
 
   .main-nav a {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: 500;
     transition: color 0.2s ease;
     font-family: "Montserrat", sans-serif;
@@ -63,7 +60,7 @@
   }
 
   .main-nav a:hover {
-    color: #666;
+    color: #a0a0a0;
   }
 
   @media (max-width: 768px) {
@@ -77,7 +74,7 @@
       right: -100%;
       width: 70%;
       height: 100vh;
-      background-color: #fff;
+      background-color: #092017;
       box-shadow: -2px 0 5px rgba(0,0,0,0.1);
       transition: right 0.3s ease;
       z-index: 1000;

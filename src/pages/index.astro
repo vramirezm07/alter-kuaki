@@ -1,35 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+import '../styles/global.css';
 import Footer from '../components/Footer.astro';
-import './src/css/global.css' 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Inicio">
-  <div class="hero">
-    <h1>Bienvenido a mi Portfolio</h1>
-    <p>Explora mis proyectos e ilustraciones.</p>
-  </div>
-
-  <div class="featured-sections">
-    <div class="section-card">
-      <h2>Proyectos</h2>
-      <p>Descubre mis trabajos universitarios y personales.</p>
-      <a href="/work" class="cta-button">Ver proyectos</a>
+<Layout title="Kuaki - Portafolio">
+  <AnimatedBackground />
+  <main class="relative z-10 flex items-center justify-center min-h-[50vh]">
+    <div class="container mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl font-bold text-[#092017] mb-8">¡Bienvenid@ a Kuaki!</h1>
+      <p class="text-xl text-[#092017]/90 mb-12 max-w-2xl mx-auto">
+        Estudiante de computacion creativa de CENTRO.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+        <a href="/work" class="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/20 transition-all">
+          <h2 class="text-2xl font-bold text-[#092017] mb-4">Proyectos</h2>
+          <p class="text-[#092017]/90">
+            Explora mis proyectos de desarrollo web y aplicaciones.
+          </p>
+        </a>
+        
+        <a href="/illustrations" class="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/20 transition-all">
+          <h2 class="text-2xl font-bold text-[#092017] mb-4">Ilustraciones</h2>
+          <p class="text-[#092017]/90">
+            Descubre mi colección de ilustraciones y diseños.
+          </p>
+        </a>
+      </div>
     </div>
-
-    <div class="section-card">
-      <h2>Ilustraciones</h2>
-      <p>Explora mi galería de ilustraciones personales.</p>
-      <a href="/illustrations" class="cta-button">Ver ilustraciones</a>
-    </div>
-  </div>
+  </main>
   <Footer />
 </Layout>
 
 <style>
+  :global(body) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  main h1{
+    font-weight: 900;
+  }
+
   .hero {
     text-align: center;
     padding: 4rem 2rem;
@@ -106,5 +128,9 @@ import './src/css/global.css'
     .featured-sections {
       padding: 0 1rem;
     }
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>
