@@ -1,45 +1,219 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import './src/styles/global.css' 
+import HeaderAlt from '../components/HeaderAlt.astro';
+import './src/css/global.css' 
 ---
 
 <Layout title="Proyectos">
-  <h1>Mis Proyectos</h1>
-  <div class="projects-grid">
-    <!-- Aquí puedes agregar tus proyectos -->
-    <div class="project-card">
-      <h2>Proyecto 1</h2>
-      <p>Descripción del proyecto 1</p>
+  <HeaderAlt />
+  <nav class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 backdrop-blur-sm rounded-full shadow-lg px-4 py-2">
+    <div class="flex gap-4">
+      <a href="#illustrator" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Illustrator</a>
+      <a href="#animaciones" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Animaciones</a>
+      <a href="#processing" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Processing</a>
+      <a href="#imagen-digital" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Imagen Digital</a>
     </div>
-    <div class="project-card">
-      <h2>Proyecto 2</h2>
-      <p>Descripción del proyecto 2</p>
-    </div>
-  </div>
+  </nav>
+  <main class="pt-32">
+    <h1 class="text-3xl font-bold text-center mb-8">Proyectos</h1>
+    
+    <!-- Sección Illustrator -->
+    <section id="illustrator" class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 text-center">Illustrator</h2>
+      <div class="grid grid-cols-3 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Ilustración 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/illustrator1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator1_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/illustrator1_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/illustrator1_grande.jpg" alt="Illustrator 1" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Illustrator 1</h3>
+          </div>
+        </div>
+        <!-- Ilustración 2 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/illustrator2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator2_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/illustrator2_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/illustrator2_grande.jpg" alt="Illustrator 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Illustrator 2</h3>
+          </div>
+        </div>
+        <!-- Ilustración 3 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/illustrator3_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator3_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/illustrator3_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator3_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/illustrator3_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/illustrator3_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/illustrator3_grande.jpg" alt="Illustrator 3" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Illustrator 3</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Animaciones -->
+    <section id="animaciones" class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 text-center">Animaciones</h2>
+      <div class="grid grid-cols-3 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Animación 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/animacion1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion1_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/animacion1_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/animacion1_grande.jpg" alt="Animación 1" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Animación 1</h3>
+          </div>
+        </div>
+        <!-- Animación 2 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/animacion2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion2_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/animacion2_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/animacion2_grande.jpg" alt="Animación 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Animación 2</h3>
+          </div>
+        </div>
+        <!-- Animación 3 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/animacion3_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion3_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion3_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion3_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion3_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/animacion3_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/animacion3_grande.jpg" alt="Animación 3" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Animación 3</h3>
+          </div>
+        </div>
+        <!-- Animación 4 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/animacion4_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion4_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion4_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion4_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion4_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/animacion4_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/animacion4_grande.jpg" alt="Animación 4" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Animación 4</h3>
+          </div>
+        </div>
+        <!-- Animación 5 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/animacion5_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion5_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/animacion5_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion5_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/animacion5_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/animacion5_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/animacion5_grande.jpg" alt="Animación 5" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Animación 5</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Processing -->
+    <section id="processing" class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 text-center">Processing</h2>
+      <div class="grid grid-cols-1 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Processing 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/processing1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/processing1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/processing1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/processing1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/processing1_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/processing1_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/processing1_grande.jpg" alt="Processing 1" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Processing 1</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Imagen Digital -->
+    <section id="imagen-digital">
+      <h2 class="text-2xl font-bold mb-6 text-center">Imagen Digital</h2>
+      <div class="grid grid-cols-2 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Imagen Digital 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/digital1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/digital1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/digital1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/digital1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/digital1_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/digital1_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/digital1_grande.jpg" alt="Imagen Digital 1" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Imagen Digital 1</h3>
+          </div>
+        </div>
+        <!-- Imagen Digital 2 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/trabajos/digital2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/digital2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/trabajos/digital2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/digital2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/trabajos/digital2_grande.jpg" type="image/jpeg">
+            <source srcset="/img/trabajos/digital2_grande.jpg" type="image/jpeg">
+            <img src="/img/trabajos/digital2_grande.jpg" alt="Imagen Digital 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Imagen Digital 2</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
-  h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-  }
-
-  .project-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  .project-card h2 {
-    margin-top: 0;
-    color: #333;
+  html {
+    scroll-behavior: smooth;
   }
 </style> 
