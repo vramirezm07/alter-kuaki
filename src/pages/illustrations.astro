@@ -1,24 +1,246 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import './src/styles/global.css' 
+import HeaderAlt from '../components/HeaderAlt.astro';
+import './src/css/global.css' 
 ---
 
 <Layout title="Ilustraciones">
-  <h1>Mis Ilustraciones</h1>
-  <div class="illustrations-grid">
-    <!-- Aquí puedes agregar tus ilustraciones -->
-    <div class="illustration-card">
-      <h2>Ilustración 1</h2>
-      <p>Descripción de la ilustración 1</p>
+  <HeaderAlt />
+  <nav class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 backdrop-blur-sm rounded-full shadow-lg px-4 py-2">
+    <div class="flex gap-4">
+      <a href="#finales" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Finales</a>
+      <a href="#sketches" class="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300">Sketches</a>
     </div>
-    <div class="illustration-card">
-      <h2>Ilustración 2</h2>
-      <p>Descripción de la ilustración 2</p>
-    </div>
-  </div>
+  </nav>
+  <main class="pt-32">
+    <h1 class="text-3xl font-bold text-center mb-8">Mis Ilustraciones</h1>
+    
+    <!-- Sección Finales -->
+    <section id="finales" class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 text-center">Finales</h2>
+      <div class="grid grid-cols-2 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Ilustración 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <!--Imagen pequeña para pantallas menores a 600px-->
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+
+            <!--Imagen mediana para pantallas entre 601px y 1024px-->
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+
+            <!--Imagen grande para pantallas mayores a 1025px-->
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/genya_02_ilustracion_grande.jpg" type="image/jpeg">
+
+            <img src="/img/ilustraciones/genya_02_ilustracion_grande.jpg" alt="Ilustracion 1 - Genya" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Genya</h3>
+          </div>
+        </div>
+        <!-- Ilustración 2 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/satosugu_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/satosugu_ilustracion_grande.jpg" alt="Ilustración 2 - Satosugu" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Satosugu</h3>
+          </div>
+        </div>
+        <!-- Ilustración 3 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/genya_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/genya_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/genya_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/genya_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/genya_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/genya_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/genya_ilustracion_grande.jpg" alt="Ilustración 3 - Genya 02" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Genya 02</h3>
+          </div>
+        </div>
+        <!-- Ilustración 4 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/tangen_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/tangen_ilustracion_grande.jpg" alt="Ilustración 4 - Tangen" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Tangen</h3>
+          </div>
+        </div>
+        <!-- Ilustración 5 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/nezuko_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/nezuko_ilustracion_grande.jpg" alt="Ilustración 5 - Nezuko" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Nezuko</h3>
+          </div>
+        </div>
+        <!-- Ilustración 6 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/rafayel_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/rafayel_ilustracion_grande.jpg" alt="Ilustración 6 - Rafayel" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Rafayel</h3>
+          </div>
+        </div>
+        <!-- Ilustración 7 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/quackity_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/quackity_ilustracion_grande.jpg" alt="Ilustración 7 - Quackity" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Quackity</h3>
+          </div>
+        </div>
+        <!-- Ilustración 8 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/gojo_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/gojo_ilustracion_grande.jpg" alt="Ilustracion 8 - Gojo" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Gojo</h3>
+          </div>
+        </div>
+        <!-- Ilustración 9 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/charlie_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/charlie_ilustracion_grande.jpg" alt="Ilustración 9" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Charlie</h3>
+          </div>
+        </div>
+        <!-- Ilustración 10 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/bokuto_ilustracion_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/bokuto_ilustracion_grande.jpg" alt="Ilustración 10" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Bokuto</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Sketches -->
+    <section id="sketches">
+      <h2 class="text-2xl font-bold mb-6 text-center">Sketches</h2>
+      <div class="grid grid-cols-2 gap-6 p-4 max-w-6xl mx-auto">
+        <!-- Sketch 1 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/mr_ilustraciones_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/mr_ilustraciones_grande.jpg" alt="Sketch 1" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Sketch 1</h3>
+          </div>
+        </div>
+        <!-- Sketch 2 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/tangen_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/tangen_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/tangen_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/tangen_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/tangen_sketch_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/tangen_sketch_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/tangen_sketch_grande.jpg" alt="Sketch 2" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Sketch 2</h3>
+          </div>
+        </div>
+        <!-- Sketch 3 -->
+        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
+          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <source srcset="/img/ilustraciones/vegetta_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/vegetta_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
+            <source srcset="/img/ilustraciones/vegetta_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/vegetta_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+            <source srcset="/img/ilustraciones/vegetta_sketch_grande.jpg" type="image/jpeg">
+            <source srcset="/img/ilustraciones/vegetta_sketch_grande.jpg" type="image/jpeg">
+            <img src="/img/ilustraciones/vegetta_sketch_grande.jpg" alt="Sketch 3" class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300">
+          </picture>
+          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+            <h3 class="text-white text-xl font-bold">Sketch 3</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .content {
+    margin-top: 4rem;
+  }
+
   h1 {
     text-align: center;
     margin-bottom: 2rem;
