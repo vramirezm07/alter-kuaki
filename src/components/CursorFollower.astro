@@ -1,0 +1,96 @@
+<div id="cursor-follower">
+  <img src="/src/assets/patito_cursor_follower.png" alt="Patito seguidor" />
+</div>
+
+<script>
+  class CursorFollower {
+    constructor() {
+      this.follower = document.getElementById('cursor-follower');
+      this.pos = { x: 0, y: 0 };
+      this.mouse = { x: 0, y: 0 };
+      this.prevMouse = { x: 0, y: 0 }; // Posición anterior del mouse
+      this.speed = 0.1; // Velocidad de seguimiento (0.1 = más lento, 1 = instantáneo)
+      this.rotationSpeed = 0.1; // Velocidad de rotación
+      this.currentAngle = 0; // Ángulo actual
+      this.targetAngle = 0; // Ángulo objetivo
+      
+      this.init();
+    }
+
+    init() {
+      // Actualizar posición del mouse
+      document.addEventListener('mousemove', (e) => {
+        this.prevMouse = { ...this.mouse }; // Guardar posición anterior
+        this.mouse.x = e.clientX;
+        this.mouse.y = e.clientY;
+      });
+
+      // Iniciar la animación
+      this.animate();
+    }
+
+    animate() {
+      // Calcular la nueva posición con suavizado
+      this.pos.x += (this.mouse.x - this.pos.x) * this.speed;
+      this.pos.y += (this.mouse.y - this.pos.y) * this.speed;
+
+      // Calcular la dirección del movimiento
+      const dx = this.mouse.x - this.prevMouse.x;
+      const dy = this.mouse.y - this.prevMouse.y;
+      
+      // Calcular el ángulo objetivo basado en la dirección del movimiento
+      if (dx !== 0 || dy !== 0) {
+        // Calcular el ángulo base
+        let newAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 180;
+        
+        // Asegurar una transición suave entre ángulos
+        let angleDiff = newAngle - this.currentAngle;
+        
+        // Normalizar la diferencia de ángulo para evitar rotaciones largas
+        if (angleDiff > 180) angleDiff -= 360;
+        if (angleDiff < -180) angleDiff += 360;
+        
+        // Actualizar el ángulo objetivo con la diferencia normalizada
+        this.targetAngle = this.currentAngle + angleDiff;
+      }
+
+      // Suavizar la rotación con una velocidad adaptativa
+      const rotationSpeed = Math.min(Math.abs(dx) + Math.abs(dy), 1) * 0.2;
+      this.currentAngle += (this.targetAngle - this.currentAngle) * rotationSpeed;
+
+      // Calcular un pequeño rebote basado en la velocidad del movimiento
+      const speed = Math.sqrt(dx * dx + dy * dy);
+      const bounce = Math.min(speed * 0.5, 5); // Limitar el rebote a 5px máximo
+
+      // Aplicar la transformación con rebote
+      this.follower.style.transform = `
+        translate(${this.pos.x}px, ${this.pos.y - bounce}px) 
+        rotate(${this.currentAngle}deg)
+      `;
+
+      // Continuar la animación
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // Iniciar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    new CursorFollower();
+  });
+</script>
+
+<style>
+  #cursor-follower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+  }
+
+  #cursor-follower img {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+</style> 

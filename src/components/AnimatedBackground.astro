@@ -2,10 +2,13 @@
 // @ts-nocheck
 ---
 
+<!-- Canvas donde se dibujará la animación -->
 <canvas id="canvas">Your browser doesn't support canvas</canvas>
 
+<!-- Filtros SVG para crear el efecto de "goo" (burbujas pegajosas) -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
+      <!-- Filtro para crear sombras y efecto de burbuja pegajosa -->
       <filter id="shadowed-goo">
           <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
           <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
@@ -15,6 +18,7 @@
           <feBlend in2="shadow" in="goo" result="goo" />
           <feBlend in2="goo" in="SourceGraphic" result="mix" />
       </filter>
+      <!-- Filtro simple para el efecto de burbuja pegajosa -->
       <filter id="goo">
           <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
           <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
@@ -26,8 +30,10 @@
 <script>
 const TWO_PI = Math.PI * 2;
 
+// Clase principal que maneja toda la animación
 class Application {
     constructor() {
+        // Inicialización del canvas y su contexto
         this.canvas = document.getElementById("canvas");
         this.context = this.canvas.getContext("2d");
         this.width = this.canvas.width = window.innerWidth;
@@ -37,13 +43,14 @@ class Application {
             y: this.height / 2
         };
 
+        // Array para almacenar los contenedores de círculos
         this.circleContainers = [];
-        this.backgroundImage = new Image();
-        this.backgroundImage.src = '/img/background.jpg'; // Asegúrate de tener esta imagen en public/images/
 
+        // Escuchar cambios en el tamaño de la ventana
         window.addEventListener('resize', () => this.resizeCanvas(), false);
     }
 
+    // Redimensionar el canvas cuando cambia el tamaño de la ventana
     resizeCanvas() {
         this.width = this.canvas.width = window.innerWidth;
         this.height = this.canvas.height = window.innerHeight;
@@ -52,10 +59,12 @@ class Application {
             y: this.height / 2
         };
 
+        // Reiniciar los contenedores de círculos
         this.circleContainers = [];
         this.initializeCircleContainers();
     }
 
+    // Crear una cuadrícula de contenedores de círculos
     initializeCircleContainers() {
         for (let x = 0; x < this.width + 50; x += 50) {
             for (let y = 0; y < this.height + 50; y += 50) {
@@ -66,27 +75,29 @@ class Application {
         }
     }
 
+    // Actualizar la posición y estado de todos los círculos
     update() {
         for (let i = 0; i < this.circleContainers.length; i++) {
             this.circleContainers[i].update();
         }
     }
 
+    // Dibujar todo en el canvas
     render() {
+        // Limpiar el canvas
         this.context.clearRect(0, 0, this.width, this.height);
-        
-        // Dibujar la imagen de fondo
-        this.context.drawImage(this.backgroundImage, 0, 0, this.width, this.height);
         
         // Aplicar un overlay semi-transparente
         this.context.fillStyle = 'rgba(9, 32, 23, 0.1)';
         this.context.fillRect(0, 0, this.width, this.height);
         
+        // Dibujar todos los círculos
         for (let i = 0; i < this.circleContainers.length; i++) {
             this.circleContainers[i].render();
         }
     }
 
+    // Bucle principal de la animación
     loop() {
         this.update();
         this.render();
@@ -94,29 +105,33 @@ class Application {
     }
 }
 
+// Clase que maneja un grupo de círculos
 class CircleContainer {
     constructor(context, x, y) {
         this.context = context;
         this.position = {x, y};
-        this.numberOfCircles = 25;
+        this.numberOfCircles = 25; // Número de círculos por contenedor
         this.circles = [];
-        this.baseRadius = 15;
-        this.bounceRadius = 100;
-        this.singleSlice = TWO_PI / this.numberOfCircles;
+        this.baseRadius = 15; // Radio base para el movimiento
+        this.bounceRadius = 100; // Radio máximo de rebote
+        this.singleSlice = TWO_PI / this.numberOfCircles; // Ángulo entre círculos
     }
 
+    // Inicializar los círculos en el contenedor
     initializeCircles() {
         for (let i = 0; i < this.numberOfCircles; i++) {
             this.circles.push(new Circle(this.position.x, this.position.y + Math.random(), this.baseRadius, this.bounceRadius, i * this.singleSlice));
         }
     }
 
+    // Actualizar todos los círculos del contenedor
     update() {
         for (let i = 0; i < this.numberOfCircles; i++) {
             this.circles[i].update(this.context);
         }
     }
 
+    // Dibujar todos los círculos del contenedor
     render() {
         for (let i = 0; i < this.numberOfCircles; i++) {
             this.circles[i].render(this.context);
@@ -124,27 +139,33 @@ class CircleContainer {
     }
 }
 
+// Clase que representa un círculo individual
 class Circle {
     constructor(x, y, baseRadius, bounceRadius, angleCircle) {
-        this.basePosition = {x, y};
-        this.position = {x, y};
-        this.speed = 0.015;
-        this.baseSize = 8;
-        this.size = 8;
-        this.angle = (x + y);
-        this.baseRadius = baseRadius;
-        this.bounceRadius = bounceRadius;
-        this.angleCircle = angleCircle;
+        this.basePosition = {x, y}; // Posición base
+        this.position = {x, y}; // Posición actual
+        this.speed = 0.015; // Velocidad de animación
+        this.baseSize = 8; // Tamaño base
+        this.size = 8; // Tamaño actual
+        this.angle = (x + y); // Ángulo inicial
+        this.baseRadius = baseRadius; // Radio base
+        this.bounceRadius = bounceRadius; // Radio de rebote
+        this.angleCircle = angleCircle; // Ángulo en el círculo
     }
 
+    // Actualizar la posición y tamaño del círculo
     update() {
+        // Calcular nueva posición usando funciones trigonométricas
         this.position.x = this.basePosition.x + Math.cos(this.angleCircle) * (Math.sin(this.angle + this.angleCircle) * this.bounceRadius + this.baseRadius);
         this.position.y = this.basePosition.y + Math.sin(this.angleCircle) * (Math.sin(this.angle + this.angleCircle) * this.bounceRadius + this.baseRadius);
+        // Actualizar tamaño basado en el ángulo
         this.size = Math.cos(this.angle) * 8 + this.baseSize;
         this.angle += this.speed;
     }
 
+    // Dibujar el círculo
     render(context) {
+        // Color HSL: 195 (tono azul), 100% (saturación), luminosidad variable
         context.fillStyle = "hsl(195, 100%, "+this.size * 4+"%)";
         context.beginPath();
         context.arc(this.position.x, this.position.y, this.size, 0, TWO_PI);
@@ -152,6 +173,7 @@ class Circle {
     }
 }
 
+// Iniciar la animación cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     const application = new Application();
     application.initializeCircleContainers();
@@ -163,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   body {
     margin: 0;
     padding: 0;
+    background-color: rgb(9, 21, 17);
   }
 
   #canvas {
@@ -172,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     width: 100%;
     height: 100%;
     z-index: -1;
-    filter: url('#shadowed-goo');
+    filter: url('#shadowed-goo'); /* Aplicar el efecto de burbuja pegajosa */
   }
 
   svg {

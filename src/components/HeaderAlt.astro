@@ -3,14 +3,14 @@
     <a href="/" class="home-link">
       <i class="fas fa-home"></i>
     </a>
-    <div class="menu-desplegable">
-      <button class="menu-toggle" aria-label="Abrir menú">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/illustrations">Illustraciones</a></li>
-        <li><a href="/work">Proyectos</a></li>
+    <a href="/" class="logo flex items-center justify-center">
+      <img src="/src/assets/kuaki_icon_.png" alt="Kuaki Logo" class="w-12 h-12 lg:w-12 lg:h-12">
+    </a>
+    <div class="flex justify-end w-full">
+      <ul class="flex gap-8">
+        <li><a href="/" class="text-white hover:text-gray-300 transition-colors">Inicio</a></li>
+        <li><a href="/illustrations" class="text-white hover:text-gray-300 transition-colors">Illustraciones</a></li>
+        <li><a href="/work" class="text-white hover:text-gray-300 transition-colors">Proyectos</a></li>
       </ul>
     </div>
   </div>
@@ -26,7 +26,7 @@
     height: 10vh;
     padding: 0 2em;
     width: 100%;
-    background: #000000;
+    background: rgb(9, 21, 17);
     color: #ffffff;
     position: fixed;
     top: 0;
@@ -36,9 +36,24 @@
 
   .header-container {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .home-link {
+    justify-self: start;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+
+  .flex.justify-end {
+    justify-self: end;
   }
 
   .menu-desplegable {
@@ -98,6 +113,16 @@
     background-color: #f8f9fa;
   }
 
-  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+  }
 </style>
 

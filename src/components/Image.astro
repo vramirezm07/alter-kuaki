@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = "" } = Astro.props;
+---
+
+<picture class={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${className}`}>
+  <source srcset={`/img/trabajos/${src}_chica.jpg`} type="image/jpeg" media="(max-width: 600px)">
+  <source srcset={`/img/trabajos/${src}_mediana.jpg`} type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
+  <img 
+    src={`/img/trabajos/${src}_grande.jpg`} 
+    alt={alt} 
+    class="w-full h-full object-cover filter blur-[2px] group-hover:blur-0 transition-all duration-300"
+  >
+</picture> 
