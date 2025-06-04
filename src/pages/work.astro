@@ -2,7 +2,134 @@
 import Layout from '../layouts/Layout.astro';
 import HeaderAlt from '../components/HeaderAlt.astro';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
+import ImageModal from '../components/ImageModal.astro';
 
+const projects = {
+  illustrator: [
+    {
+      id: 'gojo',
+      title: 'Gojo',
+      description: 'Ilustración digital creada en Adobe Illustrator inspirada en el personaje Gojo de Jujutsu Kaisen. ',
+      imageUrl: '/img/proyectos/gojo_illustrator_grande.jpg',
+      year: '2024',
+      category: 'Ilustración ',
+      tools: ['Adobe Illustrator', 'Gradientes', 'Efectos de Luz'],
+      materia: 'Geometria Vectorial'
+    },
+    {
+      id: 'ateez',
+      title: 'Ateez - Towards the light',
+      description: 'Poster promocional creado para el grupo Ateez, inspirado en su concepto "Towards the light". Con el objetivo de dar una nueva imagen a su tour.',
+      imageUrl: '/img/proyectos/proyectofinal_illustrator_grande.jpg',
+      year: '2024',
+      category: 'Ilustracion  Diseño',
+      tools: ['Adobe Illustrator', 'Tipografía', 'Composición'],
+      materia: 'Geometria Vectorial'
+    },
+    {
+      id: 'rafayel',
+      title: 'Rafayel stickers',
+      description: 'Colección de stickers inspirados en un personaje de un videojuego llaamado Rafayel.',
+      imageUrl: '/img/proyectos/stickers_illustrator_grande.jpg',
+      year: '2024',
+      category: 'Diseño de Stickers',
+      tools: ['Adobe Illustrator', 'Diseño Vectorial'],
+      materia: 'Geometria Vectorial'
+    }
+  ],
+  animaciones: [
+    {
+      id: 'autoretrato',
+      title: 'Autorretrato',
+      description: 'Animación que explora la identidad y la expresión personal a través del movimiento y la forma.',
+      imageUrl: '/img/portadas/autoretrato_animacion_portada_grande.jpg',
+      videoUrl: '/img/proyectos/autoretrato_animacion.mp4',
+      year: '2025',
+      category: 'Animación',
+      tools: ['After Effects', 'Expresiones', 'Keyframes'],
+      materia: 'Animacion 2D'
+    },
+    {
+      id: 'pendulo',
+      title: 'Pendulo',
+      description: 'Animación que muestra el movimiento armónico de un péndulo, explorando conceptos de física y ritmo.',
+      imageUrl: '/img/portadas/pendulo_animacion_portada_grande.jpg',
+      videoUrl: '/img/proyectos/pendulo_animacion.mp4',
+      year: '2025',
+      category: 'Animación',
+      tools: ['After Effects', 'Física', 'Expresiones'],
+      materia: 'Animacion 2D'
+    },
+    {
+      id: 'sonic',
+      title: 'Sonic máscaras',
+      description: 'Animación que combina elementos de Sonic con máscaras, creando una experiencia visual única.',
+      imageUrl: '/img/portadas/sonic_animacion_portada_grande.jpg',
+      videoUrl: '/img/proyectos/mascaras_animacion.mp4',
+      year: '2025',
+      category: 'Animación',
+      tools: ['After Effects', 'Máscaras', 'Composición'],
+      materia: 'Animacion 2D'
+    },
+    {
+      id: 'camaras',
+      title: 'Cámaras',
+      description: 'Animación que explora diferentes perspectivas y ángulos a través del movimiento de cámaras.',
+      imageUrl: '/img/portadas/animacion_camaras_portada_grande.jpg',
+      videoUrl: '/img/proyectos/camaras_animacion.mp4',
+      year: '2025',
+      category: 'Animación',
+      tools: ['After Effects', 'Cámaras 3D', 'Composición'],
+      materia: 'Animacion 2D'
+    },
+    {
+      id: 'kuaki',
+      title: 'Kuaki - proyecto final',
+      description: 'Proyecto final que combina diferentes técnicas de animación para crear una experiencia visual completa.',
+      imageUrl: '/img/portadas/animacion_final_portada_grande.jpg',
+      videoUrl: '/img/proyectos/proyectofinal_animacion.mp4',
+      year: '2025',
+      category: 'Animación',
+      tools: ['After Effects', 'Composición', 'Efectos'],
+      materia: 'Animacion 2D'
+    }
+  ],
+  processing: [
+    {
+      id: 'processing-final',
+      title: 'Proyecto final',
+      description: 'Proyecto final de Processing que explora la interacción entre el usuario y la animación generativa.',
+      imageUrl: '/img/portadas/processing_portada_grande.jpg',
+      videoUrl: '/img/proyectos/proyecto_final_processing.mp4',
+      year: '2025',
+      category: 'Programación Creativa',
+      tools: ['Processing', 'Java', 'Interactividad'],
+      materia: 'Fundamentos de Programacion'
+    }
+  ],
+  imagenDigital: [
+    {
+      id: 'digital1',
+      title: 'Imagen Digital 1',
+      description: 'Composición digital que explora diferentes técnicas de manipulación de imagen.',
+      imageUrl: '/proyectos/digital1_grande.jpg',
+      year: '2024',
+      category: 'Imagen Digital',
+      tools: ['Photoshop', 'Composición', 'Manipulación'],
+      materia: 'Personal'
+    },
+    {
+      id: 'digital2',
+      title: 'Imagen Digital 2',
+      description: 'Segunda composición digital que muestra diferentes aspectos de la manipulación de imagen.',
+      imageUrl: '/proyectos/digital2_grande.jpg',
+      year: '2024',
+      category: 'Imagen Digital',
+      tools: ['Photoshop', 'Composición', 'Manipulación'],
+      materia: 'Personal'
+    }
+  ]
+};
 ---
 
 <Layout title="Proyectos">
@@ -16,170 +143,150 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
       <a href="#imagen-digital" class="px-2 py-1 text-[10px] md:text-base md:px-6 md:py-2 bg-[rgb(9,21,17)] text-white rounded-full hover:bg-[rgb(18,43,35)] transition-colors duration-300 text-center whitespace-nowrap overflow-hidden">Imagen Digital</a>
     </div>
   </nav>
+  
+  <!-- Modales fuera del main -->
+  {projects.illustrator.map((project) => (
+    <ImageModal
+      id={`modal-${project.id}`}
+      title={project.title}
+      description={project.description}
+      imageUrl={project.imageUrl}
+      year={project.year}
+      category={project.category}
+      tools={project.tools}
+      materia={project.materia}
+    />
+  ))}
+  {projects.animaciones.map((project) => (
+    <ImageModal
+      id={`modal-${project.id}`}
+      title={project.title}
+      description={project.description}
+      imageUrl={project.imageUrl}
+      videoUrl={project.videoUrl}
+      year={project.year}
+      category={project.category}
+      tools={project.tools}
+      materia={project.materia}
+    />
+  ))}
+  {projects.processing.map((project) => (
+    <ImageModal
+      id={`modal-${project.id}`}
+      title={project.title}
+      description={project.description}
+      imageUrl={project.imageUrl}
+      videoUrl={project.videoUrl}
+      year={project.year}
+      category={project.category}
+      tools={project.tools}
+      materia={project.materia}
+    />
+  ))}
+  {projects.imagenDigital.map((project) => (
+    <ImageModal
+      id={`modal-${project.id}`}
+      title={project.title}
+      description={project.description}
+      imageUrl={project.imageUrl}
+      year={project.year}
+      category={project.category}
+      tools={project.tools}
+      materia={project.materia}
+    />
+  ))}
+
   <main class="pt-[10vh] bg-[rgb(9,21,17)]/30 backdrop-blur-sm min-h-[90vh] text-white [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)] w-[90%] mx-auto rounded-lg shadow-lg">
     <h1 class="text-3xl font-bold text-center mb-8 text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Proyectos</h1>
     
     <!-- Sección Illustrator -->
     <section id="illustrator" class="mb-16">
       <h2 class="text-2xl font-bold mb-6 text-center text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Illustrator</h2>
-      <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 lg:gap-6 ld:grid-rows-1 p-4 max-w-6xl mx-auto">
-        <!-- Ilustración 1 -->
-        <a href="/projects/gojo" class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/proyectos/gojo_illustrator_chico.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/proyectos/gojo_illustrator_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/proyectos/gojo_illustrator_grande.jpg" type="image/jpeg">
-            <img src="/img/proyectos/gojo_illustrator_grande.jpg" alt="Gojo" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Gojo</h3>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 p-4 max-w-6xl mx-auto">
+        {projects.illustrator.map((project) => (
+          <div 
+            class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+            onclick={`document.getElementById('modal-${project.id}').classList.remove('hidden'); document.getElementById('modal-${project.id}').classList.add('flex'); document.body.style.overflow = 'hidden';`}
+          >
+            <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+              <source srcset={project.imageUrl.replace('grande', 'chica')} type="image/jpeg" media="(max-width: 600px)">
+              <source srcset={project.imageUrl} type="image/jpeg">
+              <img src={project.imageUrl} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+            </picture>
+            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+              <h3 class="text-white text-lg md:text-xl font-bold">{project.title}</h3>
+            </div>
           </div>
-        </a>
-        <!-- Ilustración 2 -->
-        <a href="/projects/ateez" class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/proyectos/proyectofinal_illustrator_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/proyectos/proyectofinal_illustrator_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/proyectos/proyectofinal_illustrator_grande.jpg" type="image/jpeg">
-            <img src="/img/proyectos/proyectofinal_illustrator_grande.jpg" alt="Ateez poster" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Ateez - Towards the light</h3>
-          </div>
-        </a>
-        <!-- Ilustración 3 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/proyectos/stickers_illustrator_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/proyectos/stickers_illustrator_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/proyectos/stickers_illustrator_grande.jpg" type="image/jpeg">
-            <img src="/img/proyectos/stickers_illustrator_grande.jpg" alt="Stickers" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Rafayel stickers</h3>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
 
     <!-- Sección Animaciones -->
     <section id="animaciones" class="mb-16">
       <h2 class="text-2xl font-bold mb-6 text-center text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Animaciones</h2>
-      <div class="grid grid-cols-1 grid-rows-5 p-4 max-w-6xl md:grid-cols-2 md:gap-6 md:grid-rows-4 lg:grid-cols-3 lg:gap-6 lg:grid-rows-1 mx-auto">
-        <!-- Animación 1 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/autoretrato_animacion_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/autoretrato_animacion_portada_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/autoretrato_animacion_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/autoretrato_animacion_portada_grande.jpg" alt="Animación autoretrato portada" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Autorretrato</h3>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 p-4 max-w-6xl mx-auto">
+        {projects.animaciones.map((project) => (
+          <div 
+            class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+            onclick={`document.getElementById('modal-${project.id}').classList.remove('hidden'); document.getElementById('modal-${project.id}').classList.add('flex'); document.body.style.overflow = 'hidden';`}
+          >
+            <picture class="w-full h-full">
+              <source srcset={project.imageUrl.replace('grande', 'chica')} type="image/jpeg" media="(max-width: 600px)">
+              <source srcset={project.imageUrl} type="image/jpeg">
+              <img src={project.imageUrl} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+            </picture>
+            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+              <h3 class="text-white text-lg md:text-xl font-bold">{project.title}</h3>
+            </div>
           </div>
-        </div>
-        <!-- Animación 2 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/pendulo_animacion_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/pendulo_animacion_portada_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/pendulo_animacion_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/pendulo_animacion_portada_grande.jpg" alt="Animación pendulo portada" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Pendulo</h3>
-          </div>
-        </div>
-        <!-- Animación 3 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/sonic_animacion_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/sonic_animacion_portada_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/sonic_animacion_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/sonic_animacion_portada_grande.jpg" alt="Animación máscara portada" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Sonic máscaras</h3>
-          </div>
-        </div>
-        <!-- Animación 4 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/animacion_camaras_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/animacion_camaras_portada_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/animacion_camaras_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/animacion_camaras_portada_grande.jpg" alt="Animación camara portada" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Cámaras</h3>
-          </div>
-        </div>
-        <!-- Animación 5 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/animacion_final_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/animacion_final_portada_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/animacion_final_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/animacion_final_portada_grande.jpg" alt="Animación proyecto final portada" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Kuaki - proyecto final</h3>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
 
     <!-- Sección Processing -->
     <section id="processing" class="mb-16">
       <h2 class="text-2xl font-bold mb-6 text-center text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Processing</h2>
-      <div class="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:grid-rows-1 lg:grid-cols-3 lg:gap-6 p-4 lg:grid-rows-1 max-w-6xl mx-auto">
-        <!-- Processing 1 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/portadas/processing_portada_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/portadas/processing_portada_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/portadas/processing_portada_grande.jpg" type="image/jpeg">
-            <img src="/img/portadas/processing_portada_grande.jpg" alt="Processing 1" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Proyecto final</h3>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 p-4 max-w-6xl mx-auto">
+        {projects.processing.map((project) => (
+          <div 
+            class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+            onclick={`document.getElementById('modal-${project.id}').classList.remove('hidden'); document.getElementById('modal-${project.id}').classList.add('flex'); document.body.style.overflow = 'hidden';`}
+          >
+            <picture class="w-full h-full">
+              <source srcset={project.imageUrl.replace('grande', 'chica')} type="image/jpeg" media="(max-width: 600px)">
+              <source srcset={project.imageUrl} type="image/jpeg">
+              <img src={project.imageUrl} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+            </picture>
+            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+              <h3 class="text-white text-lg md:text-xl font-bold">{project.title}</h3>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
 
     <!-- Sección Imagen Digital -->
     <section id="imagen-digital">
       <h2 class="text-2xl font-bold mb-6 text-center text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Imagen Digital</h2>
-      <div class="grid grid-cols-1 grid-rows-1 md:grid-cols-2 md:gap-6 md:grid-rows-1 lg:grid-cols-2 lg:gap-6 lg:grid-rows-1 p-4 max-w-6xl mx-auto">
-        <!-- Imagen Digital 1 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/proyectos/digital1_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/proyectos/digital1_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/proyectos/digital1_grande.jpg" type="image/jpeg">
-            <img src="/proyectos/digital1_grande.jpg" alt="Imagen Digital 1" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Imagen Digital 1</h3>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 p-4 max-w-6xl mx-auto">
+        {projects.imagenDigital.map((project) => (
+          <div 
+            class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+            onclick={`document.getElementById('modal-${project.id}').classList.remove('hidden'); document.getElementById('modal-${project.id}').classList.add('flex'); document.body.style.overflow = 'hidden';`}
+          >
+            <picture class="w-full h-full">
+              <source srcset={project.imageUrl.replace('grande', 'chica')} type="image/jpeg" media="(max-width: 600px)">
+              <source srcset={project.imageUrl} type="image/jpeg">
+              <img src={project.imageUrl} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
+            </picture>
+            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+              <h3 class="text-white text-lg md:text-xl font-bold">{project.title}</h3>
+            </div>
           </div>
-        </div>
-        <!-- Imagen Digital 2 -->
-        <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/proyectos/digital2_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/proyectos/digital2_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/proyectos/digital2_grande.jpg" type="image/jpeg">
-            <img src="/proyectos/digital2_grande.jpg" alt="Imagen Digital 2" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
-          <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-            <h3 class="text-white text-xl font-bold">Imagen Digital 2</h3>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   </main>
-
 </Layout>
 
 <style>

@@ -1,0 +1,120 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  videoUrl?: string;
+  year?: string;
+  category?: string;
+  tools?: string[];
+  materia?: string;
+}
+
+const { id, title, description, imageUrl, videoUrl, year = "2024", category = "Diseño", tools = [], materia = "Personal" } = Astro.props;
+---
+
+<div id={id} class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] hidden flex items-center justify-center p-4">
+  <div class="bg-[rgb(9,21,17)]/90 p-4 md:p-8 rounded-lg w-full h-[90vh] md:w-[80%] md:h-[80vh] flex flex-col md:flex-row gap-4 md:gap-8 overflow-y-auto">
+    <!-- Columna izquierda: Información del proyecto -->
+    <div class="w-full md:w-1/2 flex flex-col items-center text-center px-2 md:px-8">
+      <div class="flex flex-col items-center w-full mb-4 md:mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">{title}</h2>
+        <div class="flex gap-4 text-gray-300 text-sm mb-4">
+          <span>{year}</span>
+          <span>•</span>
+          <span>{category}</span>
+        </div>
+      </div>
+
+      <div class="w-full text-left mb-4 md:mb-6">
+        <h3 class="text-lg md:text-xl font-semibold text-white mb-2">Descripción</h3>
+        <p class="text-gray-300 text-base md:text-lg">{description}</p>
+      </div>
+
+      <div class="w-full text-left mb-4 md:mb-6">
+        <h3 class="text-lg md:text-xl font-semibold text-white mb-2">Herramientas</h3>
+        <div class="flex flex-wrap gap-2">
+          {tools.map(tool => (
+            <span class="px-2 py-1 md:px-3 md:py-1 bg-[rgb(18,43,35)] text-white rounded-full text-xs md:text-sm">{tool}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="w-full text-left">
+        <h3 class="text-lg md:text-xl font-semibold text-white mb-2">Materia</h3>
+        <p class="text-gray-300">{materia}</p>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Imagen o Video -->
+    <div class="w-full md:w-1/2 h-[40vh] md:h-full flex items-center p-2 md:p-4 relative">
+      {videoUrl ? (
+        <div class="w-full h-full flex items-center justify-center">
+          <video 
+            src={videoUrl} 
+            controls 
+            class="w-full h-full object-contain rounded-lg"
+            onclick="event.stopPropagation()"
+            preload="metadata"
+            playsinline
+          >
+            <source src={videoUrl} type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      ) : (
+        <img 
+          src={imageUrl} 
+          alt={title} 
+          class="w-full h-full object-contain rounded-lg"
+        />
+      )}
+      <button 
+        class="absolute top-0 right-0 text-white hover:text-gray-300 transition-colors p-2"
+        onclick={`document.getElementById('${id}').classList.add('hidden'); document.getElementById('${id}').classList.remove('flex'); document.body.style.overflow = '';`}
+      >
+        <i class="fas fa-times text-xl md:text-2xl"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Cerrar modal al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    const modals = document.querySelectorAll('[id^="modal-"]');
+    modals.forEach(modal => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Cerrar modal con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modals = document.querySelectorAll('[id^="modal-"]');
+      modals.forEach(modal => {
+        if (!modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+
+  // Prevenir que el modal se cierre al hacer clic en el contenido
+  document.addEventListener('click', (e) => {
+    const modals = document.querySelectorAll('[id^="modal-"]');
+    modals.forEach(modal => {
+      const target = e.target as HTMLElement;
+      if (modal.contains(target) && target !== modal) {
+        e.stopPropagation();
+      }
+    });
+  });
+</script> 
