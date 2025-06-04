@@ -1,0 +1,99 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  srcset?: string;
+  media?: string;
+}
+
+const { src, alt, class: className = "", srcset, media } = Astro.props;
+---
+
+<div class="image-container">
+  <div class="image-loader">
+    <div class="loader"></div>
+  </div>
+  <picture>
+    {media && srcset && (
+      <source srcset={srcset} media={media} />
+    )}
+    <img
+      src={src}
+      alt={alt}
+      class={`loaded-image ${className}`}
+      loading="lazy"
+    />
+  </picture>
+</div>
+
+<style>
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .image-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 21, 17, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .loader {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  .loaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .loaded-image.loaded {
+    opacity: 1;
+  }
+
+  .image-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.loaded-image').forEach(img => {
+    if (img.complete) {
+      img.classList.add('loaded');
+      img.previousElementSibling?.classList.add('hidden');
+    } else {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+        img.previousElementSibling?.classList.add('hidden');
+      });
+    }
+  });
+</script> 
