@@ -1,55 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
-import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
+
 <Layout title="Kuaki - Portafolio">
+  
   <AnimatedBackground />
   <main class="relative z-10 flex items-center justify-center min-h-[50vh]">
-    <div class="container mx-auto px-4 py-16 text-center">
-      <h1 class="text-4xl font-bold text-[#092017] mb-8">¡Bienvenid@ a Kuaki!</h1>
-      <p class="text-xl text-[#092017]/90 mb-12 max-w-2xl mx-auto">
-        Estudiante de computacion creativa de CENTRO.
-      </p>
+    <div class="container mx-auto py-9 text-center">
+
+        <h1 class="text-[5em] font-bold text-[#ffffff] mb-8 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Kuaki</h1>
+        <p class="bg-gradient-radial from-black/30 to-transparent backdrop-blur-[2px] p-3 rounded-[100%] text-xl text-[#ffffff]/90 mb-12 max-w-2xl mx-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+          Estudiante de Computación Creativa en CENTRO y creadora de arte digital. Me especializo en dibujos digitales. Mi pasión por crear y expresarme a través del arte me impulsa a explorar nuevas formas de comunicación.
+        </p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
         <a href="/work" class="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/20 transition-all">
-          <h2 class="text-2xl font-bold text-[#092017] mb-4">Proyectos</h2>
-          <p class="text-[#092017]/90">
-            Explora mis proyectos de desarrollo web y aplicaciones.
+          <h2 class="text-2xl font-bold text-[#ffffff] mb-4">Proyectos</h2>
+          <p class="text-[#ffffff]/90">
+            Explora mis proyectos escolares.
           </p>
         </a>
         
         <a href="/illustrations" class="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/20 transition-all">
-          <h2 class="text-2xl font-bold text-[#092017] mb-4">Ilustraciones</h2>
-          <p class="text-[#092017]/90">
-            Descubre mi colección de ilustraciones y diseños.
+          <h2 class="text-2xl font-bold text-[#ffffff] mb-4">Ilustraciones</h2>
+          <p class="text-[#ffffff]/90">
+            Descubre mi colección de ilustraciones personales.
           </p>
         </a>
       </div>
     </div>
   </main>
-  <Footer />
 </Layout>
+
 
 <style>
   :global(body) {
-    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 70%);
+  }
+
+  .container {
+    overflow: hidden !important;
+    margin: 0 auto;
+    min-height: calc(100vh - 200px);
+  }
   main {
+    margin: 0 auto; 
     flex: 1;
   }
 
-  main h1{
-    font-weight: 900;
+  .container p{
+    font-size: 0.8em;
   }
 
   .hero {
@@ -60,7 +73,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 5rem;
     margin-bottom: 1rem;
     color: #333;
   }

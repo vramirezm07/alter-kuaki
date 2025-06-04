@@ -1,0 +1,28 @@
+{
+  "site": {
+    "title": "Kuaki",
+    "description": "Portfolio personal mostrando proyectos e ilustraciones",
+    "author": "kuaki",
+    "language": "es"
+  },
+  "social": {
+    "instagram": "https://instagram.com/tu-usuario",
+    "twitter": "https://twitter.com/tu-usuario",
+    "linkedin": "https://linkedin.com/in/tu-usuario"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "work": "Proyectos",
+    "illustrations": "Ilustraciones"
+  },
+  "sections": {
+    "work": {
+      "title": "Proyectos",
+      "description": "Descubre mis trabajos universitarios y personales"
+    },
+    "illustrations": {
+      "title": "Ilustraciones",
+      "description": "Explora mi galería de ilustraciones personales"
+    }
+  }
+} 
