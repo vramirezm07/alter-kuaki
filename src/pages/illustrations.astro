@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeaderAlt from '../components/HeaderAlt.astro';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
+import ImageLoader from '../components/ImageLoader.astro';
 
 ---
 
@@ -23,126 +24,120 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
       <div class="grid grid-cols-1 grid-rows-10 md:grid-cols-2 md:gap-6 md:grid-rows-5 lg:grid-cols-2 lg:gap-6 lg:grid-rows-5 p-4 max-w-6xl mx-auto">
         <!-- Ilustración 1 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <!--Imagen pequeña para pantallas menores a 600px-->
-            <source srcset="/img/ilustraciones/genya_02_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-
-            <!--Imagen mediana para pantallas entre 601px y 1024px-->
-            <source srcset="/img/ilustraciones/genya_02_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-
-            <!--Imagen grande para pantallas mayores a 1025px-->
-            <source srcset="/img/ilustraciones/genya_02_ilustracion_grande.jpg" type="image/jpeg">
-
-            <img src="/img/ilustraciones/genya_02_ilustracion_grande.jpg" alt="Ilustracion 1 - Genya" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/genya_02_ilustracion_grande.jpg"
+            alt="Ilustracion 1 - Genya"
+            srcset="/img/ilustraciones/genya_02_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Genya</h3>
           </div>
         </div>
         <!-- Ilustración 2 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/satosugu_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/satosugu_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/satosugu_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/satosugu_ilustracion_grande.jpg" alt="Ilustración 2 - Satosugu" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/satosugu_ilustracion_grande.jpg"
+            alt="Ilustración 2 - Satosugu"
+            srcset="/img/ilustraciones/satosugu_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Satosugu</h3>
           </div>
         </div>
         <!-- Ilustración 3 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/genya_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/genya_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/genya_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/genya_ilustracion_grande.jpg" alt="Ilustración 3 - Genya 02" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/genya_ilustracion_grande.jpg"
+            alt="Ilustración 3 - Genya 02"
+            srcset="/img/ilustraciones/genya_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Genya 02</h3>
           </div>
         </div>
         <!-- Ilustración 4 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/tangen_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/tangen_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/tangen_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/tangen_ilustracion_grande.jpg" alt="Ilustración 4 - Tangen" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/tangen_ilustracion_grande.jpg"
+            alt="Ilustración 4 - Tangen"
+            srcset="/img/ilustraciones/tangen_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Tangen</h3>
           </div>
         </div>
         <!-- Ilustración 5 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/nezuko_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/nezuko_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/nezuko_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/nezuko_ilustracion_grande.jpg" alt="Ilustración 5 - Nezuko" class="w-full h-full object-top object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/nezuko_ilustracion_grande.jpg"
+            alt="Ilustración 5 - Nezuko"
+            srcset="/img/ilustraciones/nezuko_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Nezuko</h3>
           </div>
         </div>
         <!-- Ilustración 6 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/rafayel_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/rafayel_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/rafayel_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/rafayel_ilustracion_grande.jpg" alt="Ilustración 6 - Rafayel" class="w-full h-full object-center object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/rafayel_ilustracion_grande.jpg"
+            alt="Ilustración 6 - Rafayel"
+            srcset="/img/ilustraciones/rafayel_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Rafayel</h3>
           </div>
         </div>
         <!-- Ilustración 7 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/quackity_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/quackity_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/quackity_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/quackity_ilustracion_grande.jpg" alt="Ilustración 7 - Quackity" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/quackity_ilustracion_grande.jpg"
+            alt="Ilustración 7 - Quackity"
+            srcset="/img/ilustraciones/quackity_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Quackity</h3>
           </div>
         </div>
         <!-- Ilustración 8 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/gojo_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/gojo_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/gojo_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/gojo_ilustracion_grande.jpg" alt="Ilustracion 8 - Gojo" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/gojo_ilustracion_grande.jpg"
+            alt="Ilustracion 8 - Gojo"
+            srcset="/img/ilustraciones/gojo_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Gojo</h3>
           </div>
         </div>
         <!-- Ilustración 9 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/charlie_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/charlie_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/charlie_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/charlie_ilustracion_grande.jpg" alt="Ilustración 9" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/charlie_ilustracion_grande.jpg"
+            alt="Ilustración 9"
+            srcset="/img/ilustraciones/charlie_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Charlie</h3>
           </div>
         </div>
         <!-- Ilustración 10 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/bokuto_ilustracion_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/bokuto_ilustracion_grande.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/bokuto_ilustracion_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/bokuto_ilustracion_grande.jpg" alt="Ilustración 10" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/bokuto_ilustracion_grande.jpg"
+            alt="Ilustración 10"
+            srcset="/img/ilustraciones/bokuto_ilustracion_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Bokuto</h3>
           </div>
@@ -156,36 +151,36 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
       <div class="grid grid-cols-1 grid-rows-3 md:grid-cols-2 md:grid-rows-2 md:gap-6 lg:grid-cols-2 lg:grid-rows-2 lg:gap-6 p-4 max-w-6xl mx-auto">
         <!-- Sketch 1 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/mr_ilustraciones_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/mr_ilustraciones_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/mr_ilustraciones_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/mr_ilustraciones_grande.jpg" alt="Sketch 1" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/mr_ilustraciones_grande.jpg"
+            alt="Sketch 1"
+            srcset="/img/ilustraciones/mr_ilustraciones_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Sketch 1</h3>
           </div>
         </div>
         <!-- Sketch 2 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/tangen_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/tangen_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/tangen_sketch_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/tangen_sketch_grande.jpg" alt="Sketch 2" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/tangen_sketch_grande.jpg"
+            alt="Sketch 2"
+            srcset="/img/ilustraciones/tangen_sketch_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Sketch 2</h3>
           </div>
         </div>
         <!-- Sketch 3 -->
         <div class="aspect-[16/9] overflow-hidden rounded-lg shadow-lg relative group">
-          <picture class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            <source srcset="/img/ilustraciones/vegetta_sketch_chica.jpg" type="image/jpeg" media="(max-width: 600px)">
-            <source srcset="/img/ilustraciones/vegetta_sketch_mediana.jpg" type="image/jpeg" media="(min-width: 601px) and (max-width: 1024px)">
-            <source srcset="/img/ilustraciones/vegetta_sketch_grande.jpg" type="image/jpeg">
-            <img src="/img/ilustraciones/vegetta_sketch_grande.jpg" alt="Sketch 3" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-300">
-          </picture>
+          <ImageLoader
+            src="/img/ilustraciones/vegetta_sketch_grande.jpg"
+            alt="Sketch 3"
+            srcset="/img/ilustraciones/vegetta_sketch_chica.jpg"
+            media="(max-width: 600px)"
+          />
           <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
             <h3 class="text-white text-xl font-bold">Sketch 3</h3>
           </div>
