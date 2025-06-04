@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeaderAlt from '../components/HeaderAlt.astro';
 import AnimatedBackground from '../components/AnimatedBackground.astro';
+
 ---
 
 <Layout title="Ilustraciones">
@@ -13,7 +14,7 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
       <a href="#sketches" class="px-2 py-1 text-[10px] md:text-base md:px-6 md:py-2 bg-[rgb(9,21,17)] text-white rounded-full hover:bg-[rgb(18,43,35)] transition-colors duration-300 text-center whitespace-nowrap overflow-hidden">Sketches</a>
     </div>
   </nav>
-  <main class="pt-32 bg-[rgb(9,21,17)]/30  backdrop-blur-sm min-h-screen text-white [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]">
+  <main class="pt-[10vh] bg-[rgb(9,21,17)]/30 backdrop-blur-sm min-h-[90vh] text-white [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)] w-[90%] mx-auto rounded-lg shadow-lg">
     <h1 class="text-3xl font-bold text-center mb-8 text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">Mis Ilustraciones</h1>
     
     <!-- Sección Finales -->
@@ -197,22 +198,25 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
 
 <style>
   html {
-    scroll-behavior: smooth;
+    height: 100%;
   }
 
   :global(body) {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
   }
 
   main {
     flex: 1;
-    max-height: 100%;
+    overflow-y: auto;
+    margin: 0 auto;
   }
 
   .content {
-    margin-top: 4rem;
     margin: auto; 
   }
 
@@ -243,7 +247,6 @@ import AnimatedBackground from '../components/AnimatedBackground.astro';
   @media (max-width: 640px) {
     nav a {
       font-size: 10px;
-      padding: 0.25rem 0.5rem;
       max-width: 100%;
     }
   }

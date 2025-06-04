@@ -20,7 +20,7 @@ import Footer from '../components/Footer.astro';
           Estudiante de Computación Creativa en CENTRO y creadora de arte digital. Me especializo en dibujos digitales. Mi pasión por crear y expresarme a través del arte me impulsa a explorar nuevas formas de comunicación.
         </p>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
         <a href="/work" class="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/20 transition-all">
           <h2 class="text-2xl font-bold text-[#ffffff] mb-4">Proyectos</h2>
           <p class="text-[#ffffff]/90">
@@ -37,28 +37,38 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </main>
+  <Footer isFixed={true} />
 </Layout>
 
 
 <style>
-  :global(body) {
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  html {
+    height: 100%;
+    overflow: hidden;
   }
 
-  .bg-gradient-radial {
-    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 70%);
+  :global(body) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 4rem; /* Espacio para el footer fijo */
+  }
+
+  main {
+    flex: 0 1 auto;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .container {
     overflow: hidden !important;
     margin: 0 auto;
-    min-height: calc(100vh - 200px);
+    padding-bottom: 2rem;
   }
-  main {
-    margin: 0 auto; 
-    flex: 1;
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 70%);
   }
 
   .container p{
