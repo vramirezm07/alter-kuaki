@@ -41,7 +41,7 @@ const projects = {
     {
       id: 'autoretrato',
       title: 'Autorretrato',
-      description: 'Animación que explora la identidad y la expresión personal a través del movimiento y la forma.',
+      description: 'Animación que explora la identidad y la expresión personal.',
       imageUrl: '/img/portadas/autoretrato_animacion_portada_grande.jpg',
       videoUrl: '/img/proyectos/autoretrato_animacion.mp4',
       year: '2025',
@@ -52,7 +52,7 @@ const projects = {
     {
       id: 'pendulo',
       title: 'Pendulo',
-      description: 'Animación que muestra el movimiento armónico de un péndulo, explorando conceptos de física y ritmo.',
+      description: 'Animación que imita el movimiento de un péndulo, explorando ritmo y velocidad en los keyframes.',
       imageUrl: '/img/portadas/pendulo_animacion_portada_grande.jpg',
       videoUrl: '/img/proyectos/pendulo_animacion.mp4',
       year: '2025',
@@ -62,8 +62,8 @@ const projects = {
     },
     {
       id: 'sonic',
-      title: 'Sonic máscaras',
-      description: 'Animación que combina elementos de Sonic con máscaras, creando una experiencia visual única.',
+      title: 'Sonic | Máscaras',
+      description: 'Ejercicio de animacion basados en sonic para el uso de máscaras.',
       imageUrl: '/img/portadas/sonic_animacion_portada_grande.jpg',
       videoUrl: '/img/proyectos/mascaras_animacion.mp4',
       year: '2025',
@@ -74,7 +74,7 @@ const projects = {
     {
       id: 'camaras',
       title: 'Cámaras',
-      description: 'Animación que explora diferentes perspectivas y ángulos a través del movimiento de cámaras.',
+      description: 'Animación que explora diferentes usos a través del movimiento de cámaras en after effects.',
       imageUrl: '/img/portadas/animacion_camaras_portada_grande.jpg',
       videoUrl: '/img/proyectos/camaras_animacion.mp4',
       year: '2025',
@@ -84,8 +84,8 @@ const projects = {
     },
     {
       id: 'kuaki',
-      title: 'Kuaki - proyecto final',
-      description: 'Proyecto final que combina diferentes técnicas de animación para crear una experiencia visual completa.',
+      title: 'Kuaki| Kamiru',
+      description: 'Proyecto final basado en lo que seria mi intro para un canal personal.',
       imageUrl: '/img/portadas/animacion_final_portada_grande.jpg',
       videoUrl: '/img/proyectos/proyectofinal_animacion.mp4',
       year: '2025',
@@ -101,7 +101,7 @@ const projects = {
       description: 'Proyecto final de Processing que explora la interacción entre el usuario y la animación generativa.',
       imageUrl: '/img/portadas/processing_portada_grande.jpg',
       videoUrl: '/img/proyectos/proyecto_final_processing.mp4',
-      year: '2025',
+      year: '2024',
       category: 'Programación Creativa',
       tools: ['Processing', 'Java', 'Interactividad'],
       materia: 'Fundamentos de Programacion'
@@ -110,29 +110,36 @@ const projects = {
   imagenDigital: [
     {
       id: 'digital1',
-      title: 'Imagen Digital 1',
-      description: 'Composición digital que explora diferentes técnicas de manipulación de imagen.',
-      imageUrl: '/proyectos/digital1_grande.jpg',
+      title: 'Ateez | Dune',
+      description: 'Composición elegí la canción "Dune" por Ateez para crear una composición visual equilibrada y llamativa, utilizando herramientas de edición no destructiva. Utilizando elementos estilo cyberpunk  / apocalíptico como conceptos principales.',
+      imageUrl: '/img/portadas/imagen_digital_album_grande.jpg',
       year: '2024',
       category: 'Imagen Digital',
-      tools: ['Photoshop', 'Composición', 'Manipulación'],
-      materia: 'Personal'
+      tools: ['Photoshop'],
+      materia: 'Imagen digital'
     },
     {
       id: 'digital2',
-      title: 'Imagen Digital 2',
-      description: 'Segunda composición digital que muestra diferentes aspectos de la manipulación de imagen.',
-      imageUrl: '/proyectos/digital2_grande.jpg',
+      title: 'Dualidad Creativa',
+      description: 'Este proyecto busca retratar las diferentes fases de creatividad que se manifiestan al momento de crear una obra/proyecto, darle lugar a la dualidad, las cosas positivas y negativas, donde los pensamientos nos consumen pero nos hacen explotar y explorar.',
+      imageUrl: '/img/portadas/imagen_digital_collage_grande.jpg',
       year: '2024',
       category: 'Imagen Digital',
-      tools: ['Photoshop', 'Composición', 'Manipulación'],
-      materia: 'Personal'
+      tools: ['Photoshop'],
+      materia: 'Imagen digital'
     }
   ]
 };
+
+const metadata = {
+  title: "Proyectos | Kuaki",
+  description: "Explora mi portafolio de proyectos creativos, incluyendo ilustraciones en Illustrator, animaciones, proyectos de Processing y diseño de imagen digital.",
+  image: "/img/portadas/kuaki_portada_grande.jpg",
+  url: "https://github.com/vramirezm07/alter-kuaki.git/work"
+};
 ---
 
-<Layout title="Proyectos">
+<Layout {...metadata}>
   <AnimatedBackground />
   <HeaderAlt />
   <nav class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 backdrop-blur-sm rounded-full shadow-lg px-2 py-1 md:px-4 md:py-2">
