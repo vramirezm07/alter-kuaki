@@ -85,14 +85,26 @@ const { src, alt, class: className = "", srcset, media } = Astro.props;
 </style>
 
 <script>
-  document.querySelectorAll('.loaded-image').forEach(img => {
-    if (img.complete) {
-      img.classList.add('loaded');
-      img.previousElementSibling?.classList.add('hidden');
+  function handleImageLoad(img: HTMLImageElement) {
+    img.classList.add('loaded');
+    const loader = img.closest('.image-container')?.querySelector('.image-loader');
+    if (loader) {
+      loader.classList.add('hidden');
+    }
+  }
+
+  document.querySelectorAll('.loaded-image').forEach((img) => {
+    const image = img as HTMLImageElement;
+    if (image.complete) {
+      handleImageLoad(image);
     } else {
-      img.addEventListener('load', () => {
-        img.classList.add('loaded');
-        img.previousElementSibling?.classList.add('hidden');
+      image.addEventListener('load', () => handleImageLoad(image));
+      // Fallback en caso de que la imagen falle al cargar
+      image.addEventListener('error', () => {
+        const loader = image.closest('.image-container')?.querySelector('.image-loader');
+        if (loader) {
+          loader.classList.add('hidden');
+        }
       });
     }
   });

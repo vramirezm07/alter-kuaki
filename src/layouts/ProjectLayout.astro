@@ -1,0 +1,88 @@
+---
+import HeaderAlt from '../components/HeaderAlt.astro';
+import Footer from '../components/Footer.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  mediaUrl: string;
+  mediaType: 'image' | 'video';
+}
+
+const { title, description, mediaUrl, mediaType } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/kuaki_icon_.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Kuaki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body>
+    <AnimatedBackground />
+    <HeaderAlt />
+    <main class="pt-[10vh] min-h-[90vh] text-white">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <!-- Descripción -->
+          <div class="bg-[rgb(9,21,17)]/30 backdrop-blur-sm p-6 rounded-lg">
+            <h1 class="text-3xl font-bold mb-4 text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_50%)]">{title}</h1>
+            <div class="prose prose-invert">
+              {description}
+            </div>
+          </div>
+          
+          <!-- Media -->
+          <div class="bg-[rgb(9,21,17)]/30 backdrop-blur-sm p-6 rounded-lg">
+            {mediaType === 'image' ? (
+              <img 
+                src={mediaUrl} 
+                alt={title} 
+                class="w-full h-auto rounded-lg shadow-lg"
+              />
+            ) : (
+              <video 
+                src={mediaUrl} 
+                controls 
+                class="w-full h-auto rounded-lg shadow-lg"
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer isFixed={false} />
+  </body>
+</html>
+
+<style>
+  html {
+    height: 100%;
+  }
+
+  :global(body) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .prose {
+    max-width: none;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+</style> 
